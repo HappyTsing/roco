@@ -1,4 +1,3 @@
-from automatic.config import config
 from automatic.window import Window
 from automatic.detector import Detector
 from automatic.config import tasks

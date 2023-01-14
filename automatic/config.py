@@ -3,10 +3,16 @@ from yaml import safe_load
 from os import path
 from loguru import logger
 import tkinter
+import sys
 
-# CUR_PATH = os.path.abspath(os.path.dirname(__file__))
-CUR_PATH = path.dirname(__file__)
-CONFIG_PATH = path.join(CUR_PATH, "config.yaml")
+if getattr(sys,'frozen',False):
+    # pyinstaller
+    CUR_PATH = path.dirname(path.realpath(sys.argv[0]))
+else:
+    CUR_PATH = path.dirname(path.abspath(__file__))
+    
+CONFIG_PATH = path.join(CUR_PATH,"config.yaml")
+IMAGE_PATH = path.join(CUR_PATH,"img")
 
 # 获取屏幕分辨率
 screen = tkinter.Tk()

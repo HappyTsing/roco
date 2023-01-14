@@ -6,11 +6,14 @@ from sys import executable
 from automatic.executor import Executor
 from loguru import logger
 from automatic.config import task_name_list
-logger.add("roco.log")
+from os import path
+from sys import argv
+CUR_PATH = path.dirname(path.realpath(argv[0]))
+LOG_PATH = path.join(CUR_PATH,"roco.log")
+logger.add(LOG_PATH)
 
 def main():
     executor = Executor()
-    
     for task in task_name_list:
         executor.submit(task)
         logger.info("=============================== next task ===============================")
