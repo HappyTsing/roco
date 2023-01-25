@@ -48,7 +48,7 @@ tasks:
   - {
     name: 双攻大队-魔神武王,
     name_en: pets_list,
-    enable: on,
+    enable: off,
     phases: [
       {id: 0, name: 宠物专区, action: click, times: 1},
       {id: 1, name: 宠物专区_选中, action: check},
@@ -70,7 +70,7 @@ tasks:
   - {
     name: 日常任务,
     name_en: everyday,
-    enable: on,
+    enable: off,
     parent_phase: activity_butler,
     phases: [
       {id: 0, name: 日常, action: click, times: 1},
@@ -128,7 +128,7 @@ tasks:
   - {
     name: 常驻任务,
     name_en: permanent,
-    enable: on,
+    enable: off,
     parent_phase: activity_butler,
     phases: [
       {id: 0, name: 常驻, action: click, times: 1},
@@ -193,7 +193,7 @@ tasks:
   - {
       name: 取物助手,
       name_en: fetch_assistant,
-      enable: on,
+      enable: off,
       parent_phase: daily_activity,
       phases: [
         {id: 0, name: 取物助手, action: click, times: 1},
@@ -205,15 +205,15 @@ tasks:
         {id: 6, name: 海底挖宝, action: click, times: 1},
         {id: 7, name: 海底挖宝_取消选中, action: check},
         {id: 8, name: 取物助手_开始, action: click, times: 1},
-        {id: 9, name: 好友庄园助手_执行中, action: check},
-        {id: 10, name: 好友庄园助手_结束, action: finish},
+        {id: 9, name: 取物助手_执行中, action: check},
+        {id: 10, name: 取物助手_结束, action: finish},
         ]
   }
 
   - {
       name: 星辰之塔,
       name_en: tower_of_stars,
-      enable: on,
+      enable: off,
       phases: [
         {id: 0, name: 星辰之塔, action: click, times: 1},
         {id: 1, name: 星辰之塔_选中, action: check},
@@ -227,13 +227,11 @@ tasks:
       ]
   }
 
-
-
   - {
       name: 黄道十二宫,
       name_en: zodiac_signs,
       parent_phase: activity_area,
-      enable: on, 
+      enable: off, 
       phases: [
         # Tip: 摩羯 、双子 请自行完成
         # 需要等待
@@ -288,7 +286,7 @@ tasks:
   - {
     name: 七曜圣地,
     name_en: seven_lights_holy_land,
-    enable: on,
+    enable: off,
     parent_phase: activity_butler,
     phases: [
       {id: 0, name: 七曜圣地, action: click, times: 1},
@@ -313,10 +311,33 @@ tasks:
   }
 
   - {
+    name: 失落之塔,
+    name_en: lost_tower,
+    enable: on,
+    parent_phase: activity_butler,
+    phases: [
+        {id: 0, name: 失落之塔, action: click, times: 1},
+        {id: 1, name: 失落之塔_选中, action: check},
+        {id: 2, name: 失落之塔_难度选择, action: click, times: 1},
+        {id: -1, name: 等待, action: wait, duration: 1},
+        {id: -1, name: 失落之塔_困难, action: press, key: down, times: 2},
+        {id: -1, name: 键盘按键_enter, action: press, key: enter, times: 1},
+        {id: 3, name: 失落之塔_打法选择, action: click, times: 1},
+        {id: -1, name: 等待, action: wait, duration: 1},
+        {id: -1, name: 键盘按键_up, action: press, key: up, times: 8},
+        {id: -1, name: 失落之塔_魔武打法, action: press, key: down, times: 4},
+        {id: -1, name: 键盘按键_enter, action: press, key: enter, times: 1},
+        {id: 4, name: 失落之塔_挑战, action: click, times: 1},
+        {id: 5, name: 失落之塔_执行中, action: check},
+        {id: 6, name: 失落之塔_结束, action: finish},
+    ]
+  }
+
+  - {
       name: 钻石任务,
       name_en: diamond_mission,
+      enable: off,
       parent_phase: activity_area,
-      enable: on,
       phases: [
         {id: 0, name: 钻石任务, action: click, times: 1},
         {id: 1, name: 钻石任务_选中, action: check},
@@ -351,7 +372,7 @@ tasks:
   - {
       name: 好友庄园助手,
       name_en: friend_manor_assistant,
-      enable: on,
+      enable: off,
       parent_phase: daily_activity,
       phases: [
         {id: 0, name: 好友庄园助手, action: click, times: 1},
@@ -365,7 +386,7 @@ tasks:
   # - {
   #   name: 热门活动,
   #   name_en: hot,
-  #   enable: on
+  #   enable: off
   #   parent_phase: activity_butler,
   #   phases: [
   #     {id: 0, name: 热门, action: click, times: 1},
